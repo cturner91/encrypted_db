@@ -79,7 +79,7 @@ class SendMessageApiTests(TestCase):
         self.assertEqual(Message.objects.count(), 0)
         self.client.post(self.url, data={
             **self.default_payload,
-            'encryption_key': 'ABCD',
+            'key': 'ABCD',
         })
         self.assertEqual(Message.objects.count(), 1)
 
@@ -106,7 +106,7 @@ class ViewMessageApiTests(TestCase):
             'content': message,
         }
         if key:
-            payload['encryption_key'] = key
+            payload['key'] = key
 
         self.client.post('/api/send-message/', data=payload)
 

@@ -19,7 +19,7 @@ class CreateMessageView(generics.CreateAPIView):
     serializer_class = SendMessageSerializer
 
     def perform_create(self, serializer):
-        key = serializer.validated_data.get('encryption_key', '')
+        key = serializer.validated_data.get('key', '')
         content = serializer.validated_data['content']
 
         # if no key, leave content unencrypted

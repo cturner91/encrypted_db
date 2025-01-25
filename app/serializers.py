@@ -25,7 +25,7 @@ class SendMessageSerializer(serializers.Serializer):
 
     # This field is not stored. Combine the content with the key to encrypt
     # User's responsibility to remember their encryption key.
-    encryption_key = serializers.CharField(required=False)
+    key = serializers.CharField(required=False)
 
 
 class ListMessageSerializer(serializers.Serializer):
@@ -33,4 +33,4 @@ class ListMessageSerializer(serializers.Serializer):
     user_to = serializers.PrimaryKeyRelatedField(queryset=AppUser.objects.all())
 
     # This field is not stored. User's responsibility to remember their encryption key.
-    encryption_key = serializers.CharField()
+    key = serializers.CharField()
