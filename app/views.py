@@ -38,7 +38,7 @@ class ListMessageView(APIView):
     
     def get(self, request, *args, **kwargs):
         key = request.query_params.get('key')
-        queryset = Message.objects.all()
+        queryset = Message.objects.all().order_by('-created_at')
 
         if key:
             for message in queryset:
