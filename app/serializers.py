@@ -3,7 +3,7 @@ import base64
 from rest_framework import serializers
 
 from .encryption import decrypt_data
-from .models import AppUser, Message
+from .models import AppUser, Message, MessageEncrypted
 
 
 class AppUserSerializer(serializers.ModelSerializer):
@@ -28,9 +28,26 @@ class SendMessageSerializer(serializers.Serializer):
     key = serializers.CharField(required=False)
 
 
-class ListMessageSerializer(serializers.Serializer):
-    user_from = serializers.PrimaryKeyRelatedField(queryset=AppUser.objects.all())
-    user_to = serializers.PrimaryKeyRelatedField(queryset=AppUser.objects.all())
+class DecryptedMessageSerializer(serializers.Serializer):
+    created_at = serializers.DateTimeField()
+    salt = serializers.IntegerField()
+    user_from = serializers.UUIDField()
+    user_to = serializers.UUIDField()
+    content = serializers.CharField()
 
-    # This field is not stored. User's responsibility to remember their encryption key.
-    key = serializers.CharField()
+
+class EncryptedMessageSerializer(serializers.ModelSerializer):
+    # in case user requests non-decrypted data back, provide as all strings (as per model)
+    class Meta:
+        model = MessageEncrypted
+        fields = '__all__'
+
+
+class EncryptedListMessageSerializer(serializers.Serializer):
+    id = serializers.UUIDField()
+    encrypted = EncryptedMessageSerializer()
+
+
+class DecryptedListMessageSerializer(serializers.Serializer):
+    id = serializers.UUIDField()
+    encrypted = DecryptedMessageSerializer()

@@ -121,7 +121,3 @@ response.json()
   }
 ]
 ```
-
-# Further work
-
-I guess all fields, not just the content, should probably be encrypted - otherwise, the user_from/to ids could leak. This might also make it easier to implement the functionality on the model itself, rather than in the views.
