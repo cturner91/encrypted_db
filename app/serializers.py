@@ -43,11 +43,11 @@ class EncryptedMessageSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class EncryptedListMessageSerializer(serializers.Serializer):
-    id = serializers.UUIDField()
-    encrypted = EncryptedMessageSerializer()
+class ListMessageSerializer(serializers.Serializer):
+    def __init__(self, *args, **kwargs):
+        if 'encrypted_serializer' in kwargs:
+            self.encrypted = kwargs.pop('encrypted_serializer')
+        super().__init__(*args, **kwargs)
 
-
-class DecryptedListMessageSerializer(serializers.Serializer):
     id = serializers.UUIDField()
-    encrypted = DecryptedMessageSerializer()
+    encrypted = EncryptedMessageSerializer()  # default but may be overridden

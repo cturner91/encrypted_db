@@ -1,5 +1,3 @@
-import base64 
-import json
 import random
 from datetime import datetime
 
@@ -9,9 +7,8 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .encryption import encrypt_data, decrypt_data
 from .models import AppUser, Message, MessageEncrypted
-from .serializers import AppUserSerializer, MessageSerializer, SendMessageSerializer, EncryptedListMessageSerializer, DecryptedListMessageSerializer
+from .serializers import AppUserSerializer, SendMessageSerializer, ListMessageSerializer, EncryptedMessageSerializer, DecryptedMessageSerializer
 
 
 class AppUserListView(generics.ListCreateAPIView):
@@ -50,7 +47,7 @@ class ListMessageView(APIView):
         queryset = Message.objects.all().select_related('encrypted')
 
         if not key:
-            serializer = EncryptedListMessageSerializer(queryset, many=True)        
+            encrypted_serializer = EncryptedMessageSerializer
         else:
             for message in queryset:
                 try:
@@ -58,6 +55,9 @@ class ListMessageView(APIView):
                 except:
                     raise ValidationError('Could not be decrypted with that key.')
 
-            serializer = DecryptedListMessageSerializer(queryset, many=True)
+            encrypted_serializer = DecryptedMessageSerializer
 
+        serializer = ListMessageSerializer(
+            queryset, many=True, encrypted_serializer=encrypted_serializer()
+        )
         return Response(serializer.data, status=200)
