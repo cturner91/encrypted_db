@@ -1,4 +1,4 @@
-from datetime import datetime
+import os
 from uuid import uuid4
 
 from django.db import models
@@ -16,6 +16,7 @@ class EncryptedMixin(models.Model):
     converted into their representative types using serializers.
     '''
     id = models.UUIDField(primary_key=True, default=uuid4)
+    salt = models.CharField(max_length=32)  # 16-byte digit is too big for even BigIntegerField
 
     def _concrete_field_names(self) -> list[str]:
         return [field.name for field in self._meta.fields if not field.is_relation]
@@ -24,12 +25,15 @@ class EncryptedMixin(models.Model):
         if key is None:
             return self  # assume already encrypted
 
+        # generate random salt
+        self.salt = int.from_bytes(os.urandom(16), byteorder='big')
+
         for field in self._concrete_field_names():
-            if field == 'id':
+            if field in ('id', 'salt'):
                 continue
 
             value = str(getattr(self, field))
-            encrypted = encrypt_data(key, value)
+            encrypted = encrypt_data(key, int(self.salt), value)
             setattr(self, field, encrypted)
 
         return self
@@ -39,11 +43,11 @@ class EncryptedMixin(models.Model):
             return self  # assume already decrypted
 
         for field in self._concrete_field_names():
-            if field == 'id':
+            if field in ('id', 'salt'):
                 continue
 
             value = str(getattr(self, field))
-            decrypted = decrypt_data(key, value)  # let errors raise
+            decrypted = decrypt_data(key, int(self.salt), value)  # let errors raise
 
             setattr(self, field, decrypted)
 
@@ -62,7 +66,6 @@ class AppUser(models.Model):
 class MessageEncrypted(EncryptedMixin):
     # All fields under an EncryptedMixin must be TextFields
     created_at = models.TextField()
-    salt = models.TextField()  # not actually using as salt, just PoC for numeric field
     user_from = models.TextField()
     user_to = models.TextField()
     content = models.TextField()

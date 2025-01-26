@@ -12,12 +12,13 @@ class EncryptionTests(TestCase):
         # and that the decrypted value equals the original value
         test_string = 'Please encrypt me'
         key = 'ABCDEFG'
+        salt = 123
 
-        encrypted = encrypt_data(key, test_string)
+        encrypted = encrypt_data(key, salt, test_string)
         self.assertNotEqual(test_string, encrypted)
         self.assertIsInstance(encrypted, str)
 
-        decrypted = decrypt_data(key, encrypted)
+        decrypted = decrypt_data(key, salt, encrypted)
         self.assertEqual(decrypted, test_string)
         self.assertIsInstance(decrypted, str)
     
@@ -25,20 +26,32 @@ class EncryptionTests(TestCase):
         test_string = 'Please encrypt me'
         key1 = 'ABCDEFG'
         key2 = '1234567'
+        salt = 123456
 
-        encrypted1 = encrypt_data(key1, test_string)
-        encrypted2 = encrypt_data(key2, test_string)
+        encrypted1 = encrypt_data(key1, salt, test_string)
+        encrypted2 = encrypt_data(key2, salt, test_string)
 
         self.assertNotEqual(encrypted1, encrypted2)
 
     def test__decrypt_with_bad_key_fails(self):
         test_string = 'Please encrypt me'
+        salt = 1234567890
 
-        encrypted = encrypt_data('ABCDEFG', test_string)
+        encrypted = encrypt_data('ABCDEFG', salt, test_string)
         self.assertNotEqual(test_string, encrypted)
 
         with self.assertRaises(Exception):
-            decrypt_data('1234567', encrypted)
+            decrypt_data('1234567', salt, encrypted)
+
+    def test__decrypt_with_bad_salt_fails(self):
+        test_string = 'Please encrypt me'
+        key = 'ABCDEFG'
+
+        encrypted = encrypt_data(key, 123, test_string)
+        self.assertNotEqual(test_string, encrypted)
+
+        with self.assertRaises(Exception):
+            decrypt_data(key, 124, encrypted)
 
 
 class AppUsersApiTests(TestCase):
