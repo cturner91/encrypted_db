@@ -52,8 +52,7 @@ class ListMessageView(APIView):
         else:
             for message in queryset:
                 try:
-                    decrypted = message.encrypted.decrypt(key)
-                    message.encrypted = decrypted
+                    message.encrypted.decrypt(key)
                 except:
                     raise ValidationError('Could not be decrypted with that key.')
 
