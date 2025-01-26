@@ -48,7 +48,6 @@ class EncryptedMixin(models.Model):
 
             value = str(getattr(self, field))
             decrypted = decrypt_data(key, int(self.salt), value)  # let errors raise
-
             setattr(self, field, decrypted)
 
         return self

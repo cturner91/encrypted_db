@@ -89,6 +89,17 @@ Note how result are encrypted - totally meaningless because we did not provide t
             "content": "Z0FBQUFBQm5sZ2lrZ1Y2SnhfN0xKdXZuUm5DdUJIelRzMmRtQzVfTENPNFh5eUJ4T09QMklkTFpMMWY2cGNtUlV2dmlMYm9RQlBTNDFZQUFHOGZMLXdMUlhDVFZsal9SOHRQbzhuT3c2Y3V5MmpiaFRpS3lmUTR5am94c21haExhTXpoVXJCam1sVmxreVFva1JLLUdfNHk1MTNUTDYtYUZlLTdoMWVlTUtDMjdUVG5tZ1IzVzhRPQ=="
         }
     }
+  },
+  {
+    "id": "85d2125f-9f89-4a13-b9ac-adb8731895a9",
+    "encrypted": {
+      "id": "6de6a9e2-1099-4c61-8b9b-96addafb485f",
+      "created_at": "Z0FBQUFBQm5sZmQ3NkFOLXJSc1RRVUVQRnFEV0tRQmdzenMwbzhWNmZZNl9zdmpSMnZOODZCUU5IckFiT0xLdWMwQkw1aDZwUVFMY2w5YWllTXgxa0h5Q0pqWmtSbjBhV3B4dzB1UWtEcktPWmtPV0ljTVpIT009",
+      "user_from": "Z0FBQUFBQm5sZmQ3bDRSUmdzV2VtektaaUF3Zmo2bUliYWktbGF6Nk9LZDRmcXRNdEp0cjNTMWo3c2J3VEtNVzY2Umc4QWhuWGRkMGdWTGR0dkxjckRnZVdoWVRHcWI5cUhSMEVMX2ZwdVNxRjBEdEFtZ0xMQUV0Q1d6Nmh3RjR4eFZEYVo2MEFrTEE=",
+      "user_to": "Z0FBQUFBQm5sZmQ3VUdLQk1wLWpKU1ZHX1VoQjJZOENOYWl1X3B5UVNiOFI1RFZFR290REdoSHNncHRJWVV3a24ycE1TbmhxX1NBZmgybzJnMlEtX3RCU1NEWEhvYjRtb0R0cGdOaVV4LVBoS1B0dzNPSDF0MjYyODFUOGdlWHRGSjIxb3JKZ3NHYXM=",
+      "content": "Z0FBQUFBQm5sZmQ3SG5OMWhRYVQwSWRoM1RSeEpGd2FocjJuUGo1Y3pORU1qYk5wa3gtaWxWVUR1ZUhkeml1V2l4SWVQX0xoOXQ3dHI1SnJwTFN5dTFHTGN6Tmc1Y3daSFJIZmt2NmxKZk50aTZDYlBSMjhQQjg9"
+    }
+  }
 ]
 ```
 
@@ -124,6 +135,7 @@ response.json()
             "created_at": "2025-01-26T10:04:21.023191",
             "user_from": "0b1cff3d-05b7-438a-b33e-62a7e3c78714",
             "user_to": "38299f07-a533-4ceb-ba4d-bc51fa664d92",
+
             "content": "omg seriously?!"
         }
     },
@@ -133,6 +145,7 @@ response.json()
             "created_at": "2025-01-26T10:04:20.925932",
             "user_from": "38299f07-a533-4ceb-ba4d-bc51fa664d92",
             "user_to": "0b1cff3d-05b7-438a-b33e-62a7e3c78714",
+
             "content": "I have something really important to tell you but it must remain private"
         }
     }
