@@ -1,5 +1,6 @@
 import random
 from datetime import datetime
+from operator import attrgetter
 
 from django.db import transaction
 from rest_framework import generics
@@ -51,11 +52,16 @@ class ListMessageView(APIView):
         else:
             for message in queryset:
                 try:
-                    message.encrypted.decrypt(key)
+                    decrypted = message.encrypted.decrypt(key)
+                    message.encrypted = decrypted
                 except:
                     raise ValidationError('Could not be decrypted with that key.')
 
             encrypted_serializer = DecryptedMessageSerializer
+
+        # if still encrypted, this is nonsensical -> which is what we want
+        # Do not use queryset.order_by -> it re-encrypts data (must not be an in-place operation)
+        queryset = sorted(queryset, key=lambda x: x.encrypted.created_at, reverse=True)
 
         serializer = ListMessageSerializer(
             queryset, many=True, encrypted_serializer=encrypted_serializer()

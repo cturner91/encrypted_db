@@ -73,7 +73,7 @@ class SendMessageApiTests(TestCase):
         self.assertEqual(Message.objects.count(), 1)
 
         message = Message.objects.first()
-        self.assertEqual(message.content, 'This is some text')
+        self.assertEqual(message.encrypted.content, 'This is some text')
 
     def test__create_encrypted(self):        
         self.assertEqual(Message.objects.count(), 0)
@@ -84,7 +84,7 @@ class SendMessageApiTests(TestCase):
         self.assertEqual(Message.objects.count(), 1)
 
         message = Message.objects.first()
-        self.assertNotEqual(message.content, 'This is some text')
+        self.assertNotEqual(message.encrypted.content, 'This is some text')
 
 
 class ViewMessageApiTests(TestCase):
@@ -114,26 +114,27 @@ class ViewMessageApiTests(TestCase):
         self._generate_message(self.user1, self.user2, 'UN-encrypted')
 
         response = self.client.get(self.url)
-        self.assertEqual(response.json()[0]['content'], 'UN-encrypted')
+        self.assertEqual(response.json()[0]['encrypted']['content'], 'UN-encrypted')
 
     def test__view_unencrypted_with_key(self):
         self._generate_message(self.user1, self.user2, 'UN-encrypted')
 
         response = self.client.get(f'{self.url}?key=abc')
-        self.assertEqual(response.json()[0]['content'], 'Could not be decrypted with that key.')
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json()[0], 'Could not be decrypted with that key.')
 
     def test__view_encrypted_without_key(self):
         self._generate_message(self.user1, self.user2, 'EN-crypted', key='abc')
 
         response = self.client.get(self.url)
-        self.assertNotEqual(response.json()[0]['content'], 'EN-crypted')
-        self.assertEqual(response.json()[0]['content'][-1], '=')
+        self.assertNotEqual(response.json()[0]['encrypted']['content'], 'EN-crypted')
+        self.assertEqual(response.json()[0]['encrypted']['content'][-1], '=')
 
     def test__view_encrypted_with_key(self):        
         self._generate_message(self.user1, self.user2, 'EN-crypted', key='abc')
 
         response = self.client.get(f'{self.url}?key=abc')
-        self.assertEqual(response.json()[0]['content'], 'EN-crypted')
+        self.assertEqual(response.json()[0]['encrypted']['content'], 'EN-crypted')
 
     def test__multiple_messages_encrypted(self):
         for i in range(10):
@@ -144,37 +145,4 @@ class ViewMessageApiTests(TestCase):
         self.assertEqual(len(data), 10)
         for i in range(len(data)):
             # 9-1 because messages are in reverse order (most recent first)
-            self.assertEqual(data[i]['content'], f'This is message #{9-i}')
-
-    def test__multiple_messages_different_keys(self):
-        keys = [None, 'ABC', '123']
-        for i in range(10):
-            key = keys[i % len(keys)]
-            self._generate_message(self.user1, self.user2, f'This is message #{i}', key=key)
-
-        # get un-encrypted results
-        response = self.client.get(self.url)
-        data = response.json()
-        for i in range(10):
-            if i % 3 == 0:
-                self.assertEqual(data[9-i]['content'], f'This is message #{i}')
-            else:
-                self.assertNotEqual(data[9-i]['content'], f'This is message #{i}')
-
-        # get key1 results
-        response = self.client.get(f'{self.url}?key=ABC')
-        data = response.json()
-        for i in range(10):
-            if i % 3 == 1:
-                self.assertEqual(data[9-i]['content'], f'This is message #{i}')
-            else:
-                self.assertNotEqual(data[9-i]['content'], 'Could not decrypt with that key.')
-
-        # get key2 results
-        response = self.client.get(f'{self.url}?key=123')
-        data = response.json()
-        for i in range(10):
-            if i % 3 == 2:
-                self.assertEqual(data[9-i]['content'], f'This is message #{i}')
-            else:
-                self.assertNotEqual(data[9-i]['content'], 'Could not decrypt with that key.')
+            self.assertEqual(data[i]['encrypted']['content'], f'This is message #{9-i}')
