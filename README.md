@@ -24,7 +24,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py test
-python manage.py runserver 8457
+python manage.py runserver 8000
 ```
 
 ## Example Requests
@@ -33,19 +33,19 @@ python manage.py runserver 8457
 import requests
 
 # create users just because it's required for messages
-response = requests.post('http://localhost:8457/api/app-users/', json={'name': 'Alfie'})
+response = requests.post('http://localhost:8000/api/app-users/', json={'name': 'Alfie'})
 user_id1 = response.json()['id']
-response = requests.post('http://localhost:8457/api/app-users/', json={'name': 'Brenda'})
+response = requests.post('http://localhost:8000/api/app-users/', json={'name': 'Brenda'})
 user_id2 = response.json()['id']
 
 # send some messages
-requests.post('http://localhost:8457/api/send-message/', json={'user_from': user_id1, 'user_to': user_id2, 'key': 'SuperSecretKey123', 'content': 'I have something really important to tell you but it must remain private'})
-requests.post('http://localhost:8457/api/send-message/', json={'user_from': user_id2, 'user_to': user_id1, 'key': 'SuperSecretKey123', 'content': 'omg seriously?!'})
-requests.post('http://localhost:8457/api/send-message/', json={'user_from': user_id1, 'user_to': user_id2, 'key': 'SuperSecretKey123', 'content': 'Yes, but we cant communicate via normal channels - let\'s use the encrypted service'})
-requests.post('http://localhost:8457/api/send-message/', json={'user_from': user_id2, 'user_to': user_id1, 'key': 'SuperSecretKey123', 'content': 'Yeah makes sense!'})
+requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id1, 'user_to': user_id2, 'key': 'SuperSecretKey123', 'content': 'I have something really important to tell you but it must remain private'})
+requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id2, 'user_to': user_id1, 'key': 'SuperSecretKey123', 'content': 'omg seriously?!'})
+requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id1, 'user_to': user_id2, 'key': 'SuperSecretKey123', 'content': 'Yes, but we cant communicate via normal channels - let\'s use the encrypted service'})
+requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id2, 'user_to': user_id1, 'key': 'SuperSecretKey123', 'content': 'Yeah makes sense!'})
 
 # View API endpoint without specifying the key
-response = requests.get('http://localhost:8457/api/view-messages/')
+response = requests.get('http://localhost:8000/api/view-messages/')
 response.json()
 # Note how result are encrypted - totally meaningless because we did not provide the encryption key
 ```
@@ -97,7 +97,7 @@ response.json()
 
 ```python
 # View API endpoint - this time, specifying the key
-response = requests.get('http://localhost:8457/api/view-messages/?key=SuperSecretKey123')
+response = requests.get('http://localhost:8000/api/view-messages/?key=SuperSecretKey123')
 response.json()
 ```
 
