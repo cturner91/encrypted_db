@@ -39,7 +39,7 @@ class EncryptedMessageSerializer(serializers.ModelSerializer):
     # in case user requests non-decrypted data back, provide as all strings (as per model)
     class Meta:
         model = MessageEncrypted
-        fields = '__all__'
+        exclude = ['id', 'salt']
 
 
 class ListMessageSerializer(serializers.Serializer):

@@ -41,57 +41,54 @@ user_id2 = response.json()['id']
 # send some messages
 requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id1, 'user_to': user_id2, 'key': 'SuperSecretKey123', 'content': 'I have something really important to tell you but it must remain private'})
 requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id2, 'user_to': user_id1, 'key': 'SuperSecretKey123', 'content': 'omg seriously?!'})
-requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id1, 'user_to': user_id2, 'key': 'SuperSecretKey123', 'content': 'Yes, but we cant communicate via normal channels - let\'s use the encrypted service'})
+requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id1, 'user_to': user_id2, 'key': 'SuperSecretKey123', 'content': 'Yes, but we cant communicate via normal channels - lets use the encrypted service'})
 requests.post('http://localhost:8000/api/send-message/', json={'user_from': user_id2, 'user_to': user_id1, 'key': 'SuperSecretKey123', 'content': 'Yeah makes sense!'})
 
 # View API endpoint without specifying the key
 response = requests.get('http://localhost:8000/api/view-messages/')
 response.json()
-# Note how result are encrypted - totally meaningless because we did not provide the encryption key
 ```
+
+Note how result are encrypted - totally meaningless because we did not provide the encryption key
 
 ```json
 [
-  {
-    "id": "b208a0bb-297f-45c7-84ce-ea82b739689e",
-    "encrypted": {
-      "id": "c407ad1c-ad2d-4829-b889-f027ab0d1e84",
-      "created_at": "Z0FBQUFBQm5sZmRzWnI4MEJQVTFTaGhKZF9pNGdsc0gyRGpxeGdsTk1LakRVVXMwWk9WOVJEb3JkejVObUlZSkRiN2pyd241b2dMb1duVC1KT3A4Z1FadFFNU083WXJaTURZeWJFM2pheDA4ZjNYeUQ2eFdCd289",
-      "user_from": "Z0FBQUFBQm5sZmRzOGNnQ0xTZWJUMXdCUWc2N0tKczFHd21uZlFUVDdnRXBqSVBuTEF2dVc4YjdPYkZJdjd3UEMxM1JlUHBHUkhUX3REdkJJa0FHaXNoaUpObHphRVNfb1c4WU9uS0lITmRybmRhQ2F5OHdudXBxWDg4aFR4TUVlUHJyRzdwNXZUT3c=",
-      "user_to": "Z0FBQUFBQm5sZmRzQ3JlUnVjVGQya0ZfQjBZRDVwUlNfVXVvQjRVTHJfMVBXOWNtMWQwdFBFVm8xdWxnRkExdEVfX01ueTExSVpsR2NXUUlvQXlYcHB4MmtRZmF0OVdwaldQQzZxX21Ma0ROMnFUc0dXSl9ZRHhUVEMzU0w4Zk44eEJ4WWZMaXJma20=",
-      "content": "Z0FBQUFBQm5sZmRzNXlucGxBOE1lV2dwejhaYWNFcWR0Sk8zcTlrbDl1M0o4ekpSQllUbXdGcmNGWjV0dm1zd0FleE52VjhqdXc4YUVVamQ2X1RySHpWejVVanNBTV9CdFI1RDEzdmw2WWhqU01GSHE1VkQwLW5kcDdYTWNxcmt1OU1YeldvWGhadHo0X0s4RUxJTV9xS0czT0NFbm1RTlRLMkZ2VTR2bVpVT2doVlVROFUwbU5WREtaTk5tdVZIZW14dEpyd0ctY2lh"
+    {
+        "id": "18a58e3d-9dde-402e-8d18-6de72900f29a",
+        "encrypted": {
+            "created_at": "Z0FBQUFBQm5sZ2lsRWY2RGk2NV9CYkFGR3UteW9GV2xqZEhZZFU1eTFLQ1g3ZVlaaXFOMDdPZWxPbnpvYjlkUXpnbTFxdG5mSFV1Ni14XzREX1FvVkI5VTIyc1dqMnhqLUFfNTZKN3MtcHJQMk4xekRpdHh4SXM9",
+            "user_from": "Z0FBQUFBQm5sZ2lsdlRWektHSEdSOFpGMVFKMXp1cDQxb3J1YTFOQzF0U1k3aVhINFZrRXp6emV1SDRpVU1RYVpwT2N1Z2huX3RDYVhmXzZEdWdGQWZhT2E4RXdSTjAwNEdQYjZmY0pHVUtPNDYwVUw5bE1JNjJfd0ZaYWR5cGRRXzZjVG1xWXlqR18=",
+            "user_to": "Z0FBQUFBQm5sZ2lseG51LS1UYnVQN2NXbnMwTkE4UGJ0TnlCMnlnQjc0UzZfZ1AxQnJ3NWVxcFpFcUJsNEdMVjZTc2lpSkcxZ3VZaHY2TF9BejdRQ1RnT0JLd3kxazN1TXllRlBvOTR3R1ZSanViM1ZqR3AyTWloVVI1MjBnS3JoVjhSVzFxRnR1elk=",
+            "content": "Z0FBQUFBQm5sZ2lsc3EwLTIwV0JHYUVORk9ITEkwdXNsNXVmRDRJRE5SOGgxRDBtcVJDZnRoZWpMODh2QTg0ck9sUnZocjhFWlEyZ05UWUZ0c3VhX0RxMGREQWUyLXBTc0E9PQ=="
+        }
+    },
+    {
+        "id": "19178939-d1f9-4504-9a1c-bf73bf5d2e31",
+        "encrypted": {
+            "created_at": "Z0FBQUFBQm5sZ2lsRFJ6cWdHakZxX1RpS1FUdzQzZ3ZTRHRhSjJOTk5odHRrbmNmQlNpZ0swdi1CVnRrR0VVazU1REVTZWNRQldrSFZJWUdYREhxX1A5Z1JHX3p3YTljSTdkdmRSMmNxWnJsMzUwU3J6YjJIRkE9",
+            "user_from": "Z0FBQUFBQm5sZ2lscElQemxBRVNvbEI3a1U0V1ZGbFRva1NBcDEzM0hCSTQ1S3NCbHN2UktOMjR0ZU50QlYtLUdKOGNUM1E3SEJ5REZsUUJLNmF3bGVpWXIzNVZDOWVhSE1fMW5nZnREM0NodzhiWWRRWjVnUmRNY1p3bWpjYU90LWNRMXh2NlZLcGo=",
+            "user_to": "Z0FBQUFBQm5sZ2lscmpISDBJUEU2Sms0Yzh6MzhYSDRTd2pIbG1wUnFzc090YTNTSDJNWmJLaXFqMzFHczFSWXRtaXlvcFZxV3VwLUhDblc0WFJ0dks1VXl6Vk93OFB2QnBzd2JHcURfNzI3djViZ3Q1SmJwWXVUQjRQWVhyT3V1NF9zbUtGNVJLVVk=",
+            "content": "Z0FBQUFBQm5sZ2lsY2tTSVBKSkktUGhRYkp5RFNVcmN5U1JveGJNbUp3Z0FkM3phZ0RFLVJkdnVLWHU3QlJJZURnSU9TYV9iV0h4MWRyQjF4NWN3SVdUeTZxQzkxbFBXc3pxUTBXSS1GWEtZTmtpbGNYWk1USllqVlZPR2lSclEtV3JOamdJVld4ZEl4V3RRNHphV0ExMmczbHhRRWFhaGZjaXZsMm81V3ZWSnl6blpxa1dkYnNpMzdUT0pWNDctd21tMGtza1M2TGRp"
+        }
+    },
+    {
+        "id": "2969e1c8-d855-4d02-bfaa-81d7c6871596",
+        "encrypted": {
+            "created_at": "Z0FBQUFBQm5sZ2lsMjNUdHF1em5tMm9qWDRTdGQ4LUotV0dEN2lFZHcyXzkydDc1TzZWWUFRbDVOUVhZeUt5VmxvbmM1bFJpaExyQlVHNXZYZktyVUJtVXpYTVJKM1JYbVFpV1NfenlDOHcxTXZSUnpsQlBXYzg9",
+            "user_from": "Z0FBQUFBQm5sZ2lsU0VkeG50VWs4TmlERUhMaVc4UWFIdXZxcG04UUZIWkNWMHM1alNFYkhNaHhvY3VKMWJTTk44ZmhrRFNXd3hhZ0sxaEpfWDAwMFNVclowXzFZa3ZpdFRBTzhtVjM5QlpqQzc4QmhyVTdSQUI0UV94SGZidDc5TzdHQ0lCSXlUSTA=",
+            "user_to": "Z0FBQUFBQm5sZ2lsczN6MTRYRW9tY0xrWEVMSVVjQ0JhWkRoRWk3VUtocENndXdBYmpnX0Y1QVpmTS01YlFFU3NkWGN6M0tkVC1lR3ZLN0lqWjhrOUU1Yl90MlZhM0xMQTZnbDhjLVdrR1BQM1lmZzJfbS10U1ZoWDNib3BPR0VRVlBkbjMtaEk0R2c=",
+            "content": "Z0FBQUFBQm5sZ2lsQ2g5Z29NWXpzRXVneDFDSjVkaHF5UkxPVjh3NGtvZE5kZVU0a1lmOTVUQUVjX3JrSTFBb0JaRElhQ1Z5c1ctQnBWZ0NQWm9CQkxkRXFOY0lad1BDT0JGdDE1TnhHWFVBYnlsc1pfMGY3Z289"
+        }
+    },
+    {
+        "id": "9192eeaa-e39f-4c4b-acf5-17b1bd4402e9",
+        "encrypted": {
+            "created_at": "Z0FBQUFBQm5sZ2lrNTJfa2xtWkl4djBpa1cycWJHMTNsc1I0YjhsY09GQk5kYVZaUTI5STZJWGF2NmRSb0YtX003T3NIa1FIZVFaZ3RGa2ptWGRsaTBZcXRTQW5jVHZZM0pFeTZIdFZtT3U5TTY0OGVkdUdSWXc9",
+            "user_from": "Z0FBQUFBQm5sZ2lrTXRxMTVDc0hDYnpjTUVmdTNDN2ZlTDVPeWk0amlabndMZDdrUXh6NXdteW1Lc0VyZ1JwZ0JPVkhIY3ZuTC1pcEdVMUhZa2xURWEtc3NkSXF4U3hKczU3SDlIMTUyYS1nM29rR2JZc2Q1LVJXZHdrMFpXZ1BnbHZuNXFxWHpTUi0=",
+            "user_to": "Z0FBQUFBQm5sZ2lrc3hvdmF3LXBsRV9WTTdZZklCZEVta041TFU5bHh0NVotMVpneGF4c1dxdkVreUJQOUtGTU1EZXhJdVc4M29NRDE2ZVVLZVloVl9iWjlTOWx6ZzFRU2NlQmt4YkYwcmZEeUdQUmVjZ1VqdkhUQUxhNlp1ZktfNFpkS0RYOE5rUl8=",
+            "content": "Z0FBQUFBQm5sZ2lrZ1Y2SnhfN0xKdXZuUm5DdUJIelRzMmRtQzVfTENPNFh5eUJ4T09QMklkTFpMMWY2cGNtUlV2dmlMYm9RQlBTNDFZQUFHOGZMLXdMUlhDVFZsal9SOHRQbzhuT3c2Y3V5MmpiaFRpS3lmUTR5am94c21haExhTXpoVXJCam1sVmxreVFva1JLLUdfNHk1MTNUTDYtYUZlLTdoMWVlTUtDMjdUVG5tZ1IzVzhRPQ=="
+        }
     }
-  },
-  {
-    "id": "1e1a2958-823f-41ca-8605-a447eb08afc9",
-    "encrypted": {
-      "id": "cd25aa72-d2f8-4594-841b-47647cc42b6d",
-      "created_at": "Z0FBQUFBQm5sZmRvZ1BDYzZXM3Jwel9ram9MUXR4eElVRHkzajJtcjEwRDRlYzd3YjhVbFk0MEZtNEJ2bFc4NG03cDN1MlVmTDcxZEc0ODJNOHc4R0Z1UFlUOXdycUVyWGk1SHdIdnpVejBnclZpNkpJQ2FLeFU9",
-      "user_from": "Z0FBQUFBQm5sZmRvOVhkZW9kcGxqOGdac0x5TTNveFpoZVY5WWhEV3pBWWV0OWZMUmJsTUVuSzB1ZndoNE1KZVEzWW9jaFdzUlNCMmJmeVpKNFFfRW01WENPZ3o4R2xXM2p1cUktM2g3ZHhWc1hQTGdTZUtDOEhOUWMxeUtKVVNFUjRjR3gtYkY2VFU=",
-      "user_to": "Z0FBQUFBQm5sZmRvT2wzT254RThGVWw0Y1F1WEg4QzVsaGxBTTlwSThxZkxwQjBDVEZlUGk0MkVqc1ZOLWVUUFA5UG02ZEIyWEY2dXlVYVhxazdtaU5IZThwTjhZcXFRUncwaXVjd3NWa2lLZkdXYTRUVDdfWlhicFMzTVBTTXE3T0tpcVlvajFpWE4=",
-      "content": "Z0FBQUFBQm5sZmRvNThZbWpjZTFvRHZ4dkV0ZXptaUViNGx0aVFyLUdVbGJhN1I0Q0ZRTTZJODNLRlhFQnp0ZlRqaXh1Uk42bjlZZzhkQ3hVYVNOVUFyQ19oNUx5N3lpNGc9PQ=="
-    }
-  },
-  {
-    "id": "16006619-c330-4a13-b325-8b82e0ff9327",
-    "encrypted": {
-      "id": "70713899-f623-4576-9345-c950f97b1a14",
-      "created_at": "Z0FBQUFBQm5sZmRqSFBMTzA2c3pnWlYyZDdaa01SejNEdFlsalFubjlEUDZKUG9mLW5MNVA3NktTcVJEV1dBVElTUXdRWGFtblpxRFA3SFVnS2tseTE4UWZvV290ay1iTWR5UVRuR280RDhHMWlLYjJkWEdWN1U9",
-      "user_from": "Z0FBQUFBQm5sZmRqemhyZWdMTTljekxVY0hNZGNNMFJyVXJtX01DZV90aEZGQWtrSTZLLTdSc3hzdTltTVlXZS1aNEVYdjVQTTA2b2xzaWEwVnJRc2dhZVlXSmdzQTNBZU5POVRKZUJ4V3gxQ3k3Y2F3QzZzTm1xVmpqdVZjYXNkNU9QQy1zUmp3b1o=",
-      "user_to": "Z0FBQUFBQm5sZmRqSnBsZ0prZWY1UFE5TjBBQi1GTHdsazUxTVY3S2tzMElrOUVfcjdKLXBqMnBzQV95bFZ3a0w4N2lvU1kteEdFREthWlRsbWxDLU45OHZScHU0OFJQZzNFYW5vSWhYUGJYY2V5d0NhZ1B0Unh4ZmNvOVc2NzBZeDdLcHFsWE9xZ0I=",
-      "content": "Z0FBQUFBQm5sZmRqRnZkSnExNm80YVlMM1lZYzlDbUl6dklwUUdpbUhtWU1DRjZONDgzOGZIN0RXWTZhRkwybllkdHU5V3BaTGlXOTRXTGNOcFVONkoyQ3NFQ3FkVERJR1pJdnZ5eFVqZUlDc0Ewak9qVW9jeE9DZWRxaTc4ay0weUt0VThaYlJDX0NNN0NsSnVkY1k2VHd6N1BwRVRGalpaa0c0MkxvQUtfYUVOUFJ5LU91dXVFPQ=="
-    }
-  },
-  {
-    "id": "85d2125f-9f89-4a13-b9ac-adb8731895a9",
-    "encrypted": {
-      "id": "6de6a9e2-1099-4c61-8b9b-96addafb485f",
-      "created_at": "Z0FBQUFBQm5sZmQ3NkFOLXJSc1RRVUVQRnFEV0tRQmdzenMwbzhWNmZZNl9zdmpSMnZOODZCUU5IckFiT0xLdWMwQkw1aDZwUVFMY2w5YWllTXgxa0h5Q0pqWmtSbjBhV3B4dzB1UWtEcktPWmtPV0ljTVpIT009",
-      "user_from": "Z0FBQUFBQm5sZmQ3bDRSUmdzV2VtektaaUF3Zmo2bUliYWktbGF6Nk9LZDRmcXRNdEp0cjNTMWo3c2J3VEtNVzY2Umc4QWhuWGRkMGdWTGR0dkxjckRnZVdoWVRHcWI5cUhSMEVMX2ZwdVNxRjBEdEFtZ0xMQUV0Q1d6Nmh3RjR4eFZEYVo2MEFrTEE=",
-      "user_to": "Z0FBQUFBQm5sZmQ3VUdLQk1wLWpKU1ZHX1VoQjJZOENOYWl1X3B5UVNiOFI1RFZFR290REdoSHNncHRJWVV3a24ycE1TbmhxX1NBZmgybzJnMlEtX3RCU1NEWEhvYjRtb0R0cGdOaVV4LVBoS1B0dzNPSDF0MjYyODFUOGdlWHRGSjIxb3JKZ3NHYXM=",
-      "content": "Z0FBQUFBQm5sZmQ3SG5OMWhRYVQwSWRoM1RSeEpGd2FocjJuUGo1Y3pORU1qYk5wa3gtaWxWVUR1ZUhkeml1V2l4SWVQX0xoOXQ3dHI1SnJwTFN5dTFHTGN6Tmc1Y3daSFJIZmt2NmxKZk50aTZDYlBSMjhQQjg9"
-    }
-  }
 ]
 ```
 
@@ -104,42 +101,38 @@ response.json()
 ```json
 [
     {
-        "id": "85d2125f-9f89-4a13-b9ac-adb8731895a9",
+        "id": "2969e1c8-d855-4d02-bfaa-81d7c6871596",
         "encrypted": {
-            "id": "6de6a9e2-1099-4c61-8b9b-96addafb485f",
-            "created_at": "2025-01-26T08:51:07.458010",
-            "user_from": "b1ca7b79-c75e-4353-8e9c-29a960150621",
-            "user_to": "f616641a-e31e-4abe-90e1-3201b073594b",
+            "created_at": "2025-01-26T10:04:21.194432",
+            "user_from": "0b1cff3d-05b7-438a-b33e-62a7e3c78714",
+            "user_to": "38299f07-a533-4ceb-ba4d-bc51fa664d92",
             "content": "Yeah makes sense!"
         }
     },
     {
-        "id": "b208a0bb-297f-45c7-84ce-ea82b739689e",
+        "id": "19178939-d1f9-4504-9a1c-bf73bf5d2e31",
         "encrypted": {
-            "id": "c407ad1c-ad2d-4829-b889-f027ab0d1e84",
-            "created_at": "2025-01-26T08:50:52.816386",
-            "user_from": "f616641a-e31e-4abe-90e1-3201b073594b",
-            "user_to": "b1ca7b79-c75e-4353-8e9c-29a960150621",
-            "content": "Yes, but we cant communicate via normal channels - let's use the encrypted service"
+            "created_at": "2025-01-26T10:04:21.105685",
+            "user_from": "38299f07-a533-4ceb-ba4d-bc51fa664d92",
+            "user_to": "0b1cff3d-05b7-438a-b33e-62a7e3c78714",
+            "content": "Yes, but we cant communicate via normal channels - lets use the encrypted service"
         }
     },
     {
-        "id": "1e1a2958-823f-41ca-8605-a447eb08afc9",
+        "id": "18a58e3d-9dde-402e-8d18-6de72900f29a",
         "encrypted": {
-            "id": "cd25aa72-d2f8-4594-841b-47647cc42b6d",
-            "created_at": "2025-01-26T08:50:48.566052",
-            "user_from": "b1ca7b79-c75e-4353-8e9c-29a960150621",
-            "user_to": "f616641a-e31e-4abe-90e1-3201b073594b",
+            "created_at": "2025-01-26T10:04:21.023191",
+            "user_from": "0b1cff3d-05b7-438a-b33e-62a7e3c78714",
+            "user_to": "38299f07-a533-4ceb-ba4d-bc51fa664d92",
             "content": "omg seriously?!"
         }
     },
     {
-        "id": "16006619-c330-4a13-b325-8b82e0ff9327",
+        "id": "9192eeaa-e39f-4c4b-acf5-17b1bd4402e9",
         "encrypted": {
-            "id": "70713899-f623-4576-9345-c950f97b1a14",
-            "created_at": "2025-01-26T08:50:43.014737",
-            "user_from": "f616641a-e31e-4abe-90e1-3201b073594b",
-            "user_to": "b1ca7b79-c75e-4353-8e9c-29a960150621",
+            "created_at": "2025-01-26T10:04:20.925932",
+            "user_from": "38299f07-a533-4ceb-ba4d-bc51fa664d92",
+            "user_to": "0b1cff3d-05b7-438a-b33e-62a7e3c78714",
             "content": "I have something really important to tell you but it must remain private"
         }
     }
