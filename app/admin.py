@@ -8,7 +8,7 @@ class AppUserAdmin(admin.ModelAdmin):
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user_from', 'user_to', 'content']
+    list_display = ['id', 'encrypted__user_from', 'encrypted__user_to', 'encrypted__content']
 
 
 admin.site.register(AppUser, AppUserAdmin)

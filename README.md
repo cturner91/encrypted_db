@@ -52,34 +52,46 @@ response.json()
 
 ```json
 [
-    {
-        "id": "a0be081b-528d-421a-bc37-7b3587f34a10",
-        "created_at": "2025-01-25T00:40:20.491353Z",
-        "content": "Z0FBQUFBQm5sREwwLVpJSlNLRW9aQklDaUJtN0FrMFhWR0pUeDI0dF9heGR4cU4zSG1QVnBrMTE5UFp3ajhpQkh0UEMyb1dTX2Z3NkpXWDRIYW5GejhDMllKWGNSOUVla2M2MGY3ZFRFc1Nnb2NTX21UWU9IUEE9",
-        "user_from": "395e2009-4f78-4fd8-b1ef-b535fc5704b8",
-        "user_to": "d8d069ee-eb63-404d-9a34-952a6a0af48c"
-    },
-    {
-        "id": "6f987b53-13a9-4c44-8748-d6c1acef0833",
-        "created_at": "2025-01-25T00:40:20.463756Z",
-        "content": "Z0FBQUFBQm5sREwwRGtPOUs1ak0xSnVNUGg5RVdVNE9KYWUzSXo4U1dNclZrS3hwRnNablZTXzBYTDl1RjBrbmNLR0lZTzBUYlpnaF9TUEp5d1Q4cXBaMXBSRm5BcEVzamR4VF8tS2I2cmM5d0doZlZURWxXMFpFMFViRFQ1Y0lzQzN3blAxSUxucC1CN0Mxc09Wa3VtU2phWk9LZ0dEQlVOUkZqdzduTWV6YnRsRDhRRHlqOEJNUVdfa3ktVmFrVjdUaDFmUjlXZkNa",
-        "user_from": "d8d069ee-eb63-404d-9a34-952a6a0af48c",
-        "user_to": "395e2009-4f78-4fd8-b1ef-b535fc5704b8"
-    },
-    {
-        "id": "30bb36e4-8d47-4193-b866-d12a7da0926f",
-        "created_at": "2025-01-25T00:40:20.436107Z",
-        "content": "Z0FBQUFBQm5sREwwZjN2U1ZtazlDSVp0QjlmMXQ3cEt0cURaX1kwT0doYjU0WGpqRFllcU5yQWtKb2U0ci1LRWNVN292WlpKR3ZTV1VaaXQ0bmdIUlZ3ZDVRdzhZcmxSN2c9PQ==",
-        "user_from": "395e2009-4f78-4fd8-b1ef-b535fc5704b8",
-        "user_to": "d8d069ee-eb63-404d-9a34-952a6a0af48c"
-    },
-    {
-        "id": "d375829a-d404-49ed-b70b-484a8a13e69b",
-        "created_at": "2025-01-25T00:40:20.394545Z",
-        "content": "Z0FBQUFBQm5sREwwZzdyczl4bVdfdjhaM3JpQXNfVnpwS1NHN1FRamtWN0gwZWZIZkxWenpNSERTMWJJQ3NBdGk3NXFiM3ZKZlppU3NXX0x5ZkhBeVJPVkt4aDJFRzhNNWpFX1QzVlZQREk4c2FoSVJVbEJ5d01scXhMTzdBbUNXUFFNZ3d6alhRQTUtODJPYXlpV25rY0FKc0dTYVd6N0pYUDlVYjMwUm84bF9peW04eWh5MllrPQ==",
-        "user_from": "d8d069ee-eb63-404d-9a34-952a6a0af48c",
-        "user_to": "395e2009-4f78-4fd8-b1ef-b535fc5704b8"
+  {
+    "id": "b208a0bb-297f-45c7-84ce-ea82b739689e",
+    "encrypted": {
+      "id": "c407ad1c-ad2d-4829-b889-f027ab0d1e84",
+      "created_at": "Z0FBQUFBQm5sZmRzWnI4MEJQVTFTaGhKZF9pNGdsc0gyRGpxeGdsTk1LakRVVXMwWk9WOVJEb3JkejVObUlZSkRiN2pyd241b2dMb1duVC1KT3A4Z1FadFFNU083WXJaTURZeWJFM2pheDA4ZjNYeUQ2eFdCd289",
+      "user_from": "Z0FBQUFBQm5sZmRzOGNnQ0xTZWJUMXdCUWc2N0tKczFHd21uZlFUVDdnRXBqSVBuTEF2dVc4YjdPYkZJdjd3UEMxM1JlUHBHUkhUX3REdkJJa0FHaXNoaUpObHphRVNfb1c4WU9uS0lITmRybmRhQ2F5OHdudXBxWDg4aFR4TUVlUHJyRzdwNXZUT3c=",
+      "user_to": "Z0FBQUFBQm5sZmRzQ3JlUnVjVGQya0ZfQjBZRDVwUlNfVXVvQjRVTHJfMVBXOWNtMWQwdFBFVm8xdWxnRkExdEVfX01ueTExSVpsR2NXUUlvQXlYcHB4MmtRZmF0OVdwaldQQzZxX21Ma0ROMnFUc0dXSl9ZRHhUVEMzU0w4Zk44eEJ4WWZMaXJma20=",
+      "content": "Z0FBQUFBQm5sZmRzNXlucGxBOE1lV2dwejhaYWNFcWR0Sk8zcTlrbDl1M0o4ekpSQllUbXdGcmNGWjV0dm1zd0FleE52VjhqdXc4YUVVamQ2X1RySHpWejVVanNBTV9CdFI1RDEzdmw2WWhqU01GSHE1VkQwLW5kcDdYTWNxcmt1OU1YeldvWGhadHo0X0s4RUxJTV9xS0czT0NFbm1RTlRLMkZ2VTR2bVpVT2doVlVROFUwbU5WREtaTk5tdVZIZW14dEpyd0ctY2lh"
     }
+  },
+  {
+    "id": "1e1a2958-823f-41ca-8605-a447eb08afc9",
+    "encrypted": {
+      "id": "cd25aa72-d2f8-4594-841b-47647cc42b6d",
+      "created_at": "Z0FBQUFBQm5sZmRvZ1BDYzZXM3Jwel9ram9MUXR4eElVRHkzajJtcjEwRDRlYzd3YjhVbFk0MEZtNEJ2bFc4NG03cDN1MlVmTDcxZEc0ODJNOHc4R0Z1UFlUOXdycUVyWGk1SHdIdnpVejBnclZpNkpJQ2FLeFU9",
+      "user_from": "Z0FBQUFBQm5sZmRvOVhkZW9kcGxqOGdac0x5TTNveFpoZVY5WWhEV3pBWWV0OWZMUmJsTUVuSzB1ZndoNE1KZVEzWW9jaFdzUlNCMmJmeVpKNFFfRW01WENPZ3o4R2xXM2p1cUktM2g3ZHhWc1hQTGdTZUtDOEhOUWMxeUtKVVNFUjRjR3gtYkY2VFU=",
+      "user_to": "Z0FBQUFBQm5sZmRvT2wzT254RThGVWw0Y1F1WEg4QzVsaGxBTTlwSThxZkxwQjBDVEZlUGk0MkVqc1ZOLWVUUFA5UG02ZEIyWEY2dXlVYVhxazdtaU5IZThwTjhZcXFRUncwaXVjd3NWa2lLZkdXYTRUVDdfWlhicFMzTVBTTXE3T0tpcVlvajFpWE4=",
+      "content": "Z0FBQUFBQm5sZmRvNThZbWpjZTFvRHZ4dkV0ZXptaUViNGx0aVFyLUdVbGJhN1I0Q0ZRTTZJODNLRlhFQnp0ZlRqaXh1Uk42bjlZZzhkQ3hVYVNOVUFyQ19oNUx5N3lpNGc9PQ=="
+    }
+  },
+  {
+    "id": "16006619-c330-4a13-b325-8b82e0ff9327",
+    "encrypted": {
+      "id": "70713899-f623-4576-9345-c950f97b1a14",
+      "created_at": "Z0FBQUFBQm5sZmRqSFBMTzA2c3pnWlYyZDdaa01SejNEdFlsalFubjlEUDZKUG9mLW5MNVA3NktTcVJEV1dBVElTUXdRWGFtblpxRFA3SFVnS2tseTE4UWZvV290ay1iTWR5UVRuR280RDhHMWlLYjJkWEdWN1U9",
+      "user_from": "Z0FBQUFBQm5sZmRqemhyZWdMTTljekxVY0hNZGNNMFJyVXJtX01DZV90aEZGQWtrSTZLLTdSc3hzdTltTVlXZS1aNEVYdjVQTTA2b2xzaWEwVnJRc2dhZVlXSmdzQTNBZU5POVRKZUJ4V3gxQ3k3Y2F3QzZzTm1xVmpqdVZjYXNkNU9QQy1zUmp3b1o=",
+      "user_to": "Z0FBQUFBQm5sZmRqSnBsZ0prZWY1UFE5TjBBQi1GTHdsazUxTVY3S2tzMElrOUVfcjdKLXBqMnBzQV95bFZ3a0w4N2lvU1kteEdFREthWlRsbWxDLU45OHZScHU0OFJQZzNFYW5vSWhYUGJYY2V5d0NhZ1B0Unh4ZmNvOVc2NzBZeDdLcHFsWE9xZ0I=",
+      "content": "Z0FBQUFBQm5sZmRqRnZkSnExNm80YVlMM1lZYzlDbUl6dklwUUdpbUhtWU1DRjZONDgzOGZIN0RXWTZhRkwybllkdHU5V3BaTGlXOTRXTGNOcFVONkoyQ3NFQ3FkVERJR1pJdnZ5eFVqZUlDc0Ewak9qVW9jeE9DZWRxaTc4ay0weUt0VThaYlJDX0NNN0NsSnVkY1k2VHd6N1BwRVRGalpaa0c0MkxvQUtfYUVOUFJ5LU91dXVFPQ=="
+    }
+  },
+  {
+    "id": "85d2125f-9f89-4a13-b9ac-adb8731895a9",
+    "encrypted": {
+      "id": "6de6a9e2-1099-4c61-8b9b-96addafb485f",
+      "created_at": "Z0FBQUFBQm5sZmQ3NkFOLXJSc1RRVUVQRnFEV0tRQmdzenMwbzhWNmZZNl9zdmpSMnZOODZCUU5IckFiT0xLdWMwQkw1aDZwUVFMY2w5YWllTXgxa0h5Q0pqWmtSbjBhV3B4dzB1UWtEcktPWmtPV0ljTVpIT009",
+      "user_from": "Z0FBQUFBQm5sZmQ3bDRSUmdzV2VtektaaUF3Zmo2bUliYWktbGF6Nk9LZDRmcXRNdEp0cjNTMWo3c2J3VEtNVzY2Umc4QWhuWGRkMGdWTGR0dkxjckRnZVdoWVRHcWI5cUhSMEVMX2ZwdVNxRjBEdEFtZ0xMQUV0Q1d6Nmh3RjR4eFZEYVo2MEFrTEE=",
+      "user_to": "Z0FBQUFBQm5sZmQ3VUdLQk1wLWpKU1ZHX1VoQjJZOENOYWl1X3B5UVNiOFI1RFZFR290REdoSHNncHRJWVV3a24ycE1TbmhxX1NBZmgybzJnMlEtX3RCU1NEWEhvYjRtb0R0cGdOaVV4LVBoS1B0dzNPSDF0MjYyODFUOGdlWHRGSjIxb3JKZ3NHYXM=",
+      "content": "Z0FBQUFBQm5sZmQ3SG5OMWhRYVQwSWRoM1RSeEpGd2FocjJuUGo1Y3pORU1qYk5wa3gtaWxWVUR1ZUhkeml1V2l4SWVQX0xoOXQ3dHI1SnJwTFN5dTFHTGN6Tmc1Y3daSFJIZmt2NmxKZk50aTZDYlBSMjhQQjg9"
+    }
+  }
 ]
 ```
 
@@ -91,37 +103,45 @@ response.json()
 
 ```json
 [
-  {
-    "id": "c66c93bc-7ccf-4587-bc65-fb891965624e",
-    "created_at": "2025-01-25T00:46:06.132711Z",
-    "content": "Yeah makes sense!",
-    "user_from": "13490489-330a-4620-9376-a98e6c037add",
-    "user_to": "a6188145-a304-4ab0-8ab8-1527b1f74581"
-  },
-  {
-    "id": "bf730481-cfbe-4253-89d0-9c62bab061a8",
-    "created_at": "2025-01-25T00:46:06.104957Z",
-    "content": "Yes, but we cant communicate via normal channels - let's use the encrypted service",
-    "user_from": "a6188145-a304-4ab0-8ab8-1527b1f74581",
-    "user_to": "13490489-330a-4620-9376-a98e6c037add"
-  },
-  {
-    "id": "a1316d20-0209-4f5b-95df-653d615ed222",
-    "created_at": "2025-01-25T00:46:06.077017Z",
-    "content": "omg seriously?!",
-    "user_from": "13490489-330a-4620-9376-a98e6c037add",
-    "user_to": "a6188145-a304-4ab0-8ab8-1527b1f74581"
-  },
-  {
-    "id": "e4f137fa-830e-460f-8663-259578166b29",
-    "created_at": "2025-01-25T00:46:06.046608Z",
-    "content": "I have something really important to tell you but it must remain private",
-    "user_from": "a6188145-a304-4ab0-8ab8-1527b1f74581",
-    "user_to": "13490489-330a-4620-9376-a98e6c037add"
-  }
+    {
+        "id": "85d2125f-9f89-4a13-b9ac-adb8731895a9",
+        "encrypted": {
+            "id": "6de6a9e2-1099-4c61-8b9b-96addafb485f",
+            "created_at": "2025-01-26T08:51:07.458010",
+            "user_from": "b1ca7b79-c75e-4353-8e9c-29a960150621",
+            "user_to": "f616641a-e31e-4abe-90e1-3201b073594b",
+            "content": "Yeah makes sense!"
+        }
+    },
+    {
+        "id": "b208a0bb-297f-45c7-84ce-ea82b739689e",
+        "encrypted": {
+            "id": "c407ad1c-ad2d-4829-b889-f027ab0d1e84",
+            "created_at": "2025-01-26T08:50:52.816386",
+            "user_from": "f616641a-e31e-4abe-90e1-3201b073594b",
+            "user_to": "b1ca7b79-c75e-4353-8e9c-29a960150621",
+            "content": "Yes, but we cant communicate via normal channels - let's use the encrypted service"
+        }
+    },
+    {
+        "id": "1e1a2958-823f-41ca-8605-a447eb08afc9",
+        "encrypted": {
+            "id": "cd25aa72-d2f8-4594-841b-47647cc42b6d",
+            "created_at": "2025-01-26T08:50:48.566052",
+            "user_from": "b1ca7b79-c75e-4353-8e9c-29a960150621",
+            "user_to": "f616641a-e31e-4abe-90e1-3201b073594b",
+            "content": "omg seriously?!"
+        }
+    },
+    {
+        "id": "16006619-c330-4a13-b325-8b82e0ff9327",
+        "encrypted": {
+            "id": "70713899-f623-4576-9345-c950f97b1a14",
+            "created_at": "2025-01-26T08:50:43.014737",
+            "user_from": "f616641a-e31e-4abe-90e1-3201b073594b",
+            "user_to": "b1ca7b79-c75e-4353-8e9c-29a960150621",
+            "content": "I have something really important to tell you but it must remain private"
+        }
+    }
 ]
 ```
-
-# Further work
-
-I guess all fields, not just the content, should probably be encrypted - otherwise, the user_from/to ids could leak. This might also make it easier to implement the functionality on the model itself, rather than in the views.

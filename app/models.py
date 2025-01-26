@@ -1,10 +1,53 @@
-import base64
+from datetime import datetime
 from uuid import uuid4
 
-from django.contrib.auth.hashers import make_password
 from django.db import models
 
 from .encryption import decrypt_data, encrypt_data
+
+
+class EncryptedMixin(models.Model):
+    '''This class encrypts all fields except ID
+
+    Use as a OneToOne relationship on another model, with the fields requiring encryption on this
+    model and the fields not requiring encryption on the sibling model
+
+    As everything is base64 encoded, all fields on subclass **must** be strings. They can be 
+    converted into their representative types using serializers.
+    '''
+    id = models.UUIDField(primary_key=True, default=uuid4)
+
+    def _concrete_field_names(self) -> list[str]:
+        return [field.name for field in self._meta.fields if not field.is_relation]
+
+    def encrypt(self, key: str = None):
+        if key is None:
+            return self  # assume already encrypted
+
+        for field in self._concrete_field_names():
+            if field == 'id':
+                continue
+
+            value = str(getattr(self, field))
+            encrypted = encrypt_data(key, value)
+            setattr(self, field, encrypted)
+
+        return self
+
+    def decrypt(self, key: str = None):
+        if key is None:
+            return self  # assume already decrypted
+
+        for field in self._concrete_field_names():
+            if field == 'id':
+                continue
+
+            value = str(getattr(self, field))
+            decrypted = decrypt_data(key, value)  # let errors raise
+
+            setattr(self, field, decrypted)
+
+        return self
 
 
 class AppUser(models.Model):
@@ -16,17 +59,15 @@ class AppUser(models.Model):
         return self.name
 
 
+class MessageEncrypted(EncryptedMixin):
+    # All fields under an EncryptedMixin must be TextFields
+    created_at = models.TextField()
+    salt = models.TextField()  # not actually using as salt, just PoC for numeric field
+    user_from = models.TextField()
+    user_to = models.TextField()
+    content = models.TextField()
+
+
 class Message(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4)
-    user_from = models.ForeignKey(
-        AppUser, 
-        on_delete=models.DO_NOTHING,
-        related_name='messages_sent',
-    )
-    user_to = models.ForeignKey(
-        AppUser, 
-        on_delete=models.DO_NOTHING,
-        related_name='messages_received',
-    )
-    created_at = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
+    encrypted = models.OneToOneField(MessageEncrypted, on_delete=models.CASCADE)
