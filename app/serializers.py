@@ -30,7 +30,6 @@ class SendMessageSerializer(serializers.Serializer):
 
 class DecryptedMessageSerializer(serializers.Serializer):
     created_at = serializers.DateTimeField()
-    salt = serializers.IntegerField()
     user_from = serializers.UUIDField()
     user_to = serializers.UUIDField()
     content = serializers.CharField()
